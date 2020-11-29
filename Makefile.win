@@ -1,0 +1,55 @@
+# Project: Scimark2
+# Makefile created by Embarcadero Dev-C++ 6.2
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = scimark2.o FFT.o LU.o MonteCarlo.o SOR.o SparseCompRow.o Stopwatch.o Random.o kernel.o array.o
+LINKOBJ  = scimark2.o FFT.o LU.o MonteCarlo.o SOR.o SparseCompRow.o Stopwatch.o Random.o kernel.o array.o
+LIBS     = -L"C:/Dev-Cpp/TDM-GCC-64/lib" -L"C:/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Dev-Cpp/TDM-GCC-64/include" -I"C:/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
+CXXINCS  = -I"C:/Dev-Cpp/TDM-GCC-64/include" -I"C:/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
+BIN      = Scimark2.exe
+CXXFLAGS = $(CXXINCS) -O3 -std=gnu++2a -ffast-math -msse2 -mfpmath=sse
+CFLAGS   = $(INCS) -O3 -std=gnu++2a
+DEL      = del /f /q
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${DEL} $(OBJ) $(BIN) 2>nul
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+scimark2.o: scimark2.c
+	$(CPP) -c scimark2.c -o scimark2.o $(CXXFLAGS)
+
+FFT.o: FFT.c
+	$(CPP) -c FFT.c -o FFT.o $(CXXFLAGS)
+
+LU.o: LU.c
+	$(CPP) -c LU.c -o LU.o $(CXXFLAGS)
+
+MonteCarlo.o: MonteCarlo.c
+	$(CPP) -c MonteCarlo.c -o MonteCarlo.o $(CXXFLAGS)
+
+SOR.o: SOR.c
+	$(CPP) -c SOR.c -o SOR.o $(CXXFLAGS)
+
+SparseCompRow.o: SparseCompRow.c
+	$(CPP) -c SparseCompRow.c -o SparseCompRow.o $(CXXFLAGS)
+
+Stopwatch.o: Stopwatch.c
+	$(CPP) -c Stopwatch.c -o Stopwatch.o $(CXXFLAGS)
+
+Random.o: Random.c
+	$(CPP) -c Random.c -o Random.o $(CXXFLAGS)
+
+kernel.o: kernel.c
+	$(CPP) -c kernel.c -o kernel.o $(CXXFLAGS)
+
+array.o: array.c
+	$(CPP) -c array.c -o array.o $(CXXFLAGS)
