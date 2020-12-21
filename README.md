@@ -1,5 +1,5 @@
 # Scimark2 for Dev-C++
-Scimark2 Project For Dev-C++ on Windows.
+Scimark2 Project For [Dev-C++](https://www.embarcadero.com/free-tools/dev-cpp) on Windows.
 
 ![Scimark2 Dev-C++](screenshot.png?raw=true "Scimark2 Dev-C++")
 
